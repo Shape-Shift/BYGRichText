@@ -9,8 +9,8 @@
 #include "IDetailChildrenBuilder.h"
 #include "DetailWidgetRow.h"
 #include "Widgets/Text/STextBlock.h"
-#include <PropertyEditor/Public/IDetailCustomNodeBuilder.h>
 #include "BYGRichTextUIStyle.h"
+#include "Settings/BYGRichTextStyle.h"
 
 #define LOCTEXT_NAMESPACE "BYGRichTextEditorModule"
 
@@ -29,6 +29,7 @@ public:
 	virtual bool RequiresTick() const override { return false; }
 	virtual bool InitiallyCollapsed() const override { return false; }
 	virtual FName GetName() const override;
+	virtual FString GetReferencerName() const override;
 	//~ End IDetailCustomNodeBuilder interface
 
 	//~ Begin FGCObject interface
@@ -87,8 +88,8 @@ void FBYGRichTextStylesheetCustomization::CustomizeDetails( IDetailLayoutBuilder
 				.AutoWidth()
 				[
 					SNew( STextBlock )
-					.TextStyle( FEditorStyle::Get(), "ContentBrowser.TopBar.Font" )
-					.Font( FEditorStyle::Get().GetFontStyle( "FontAwesome.11" ) )
+					.TextStyle( FAppStyle::Get(), "ContentBrowser.TopBar.Font" )
+					.Font( FAppStyle::Get().GetFontStyle( "FontAwesome.11" ) )
 					.Text( FText::FromString( FString( TEXT( "\xf067" ) ) ) /*fa-plus*/ )
 					.Margin( FMargin( 0, 0, 2, 0 ) )
 				]
@@ -209,6 +210,11 @@ FName FBYGStyleDetails::GetName() const
 	return Name;
 }
 
+FString FBYGStyleDetails::GetReferencerName() const
+{
+	return "BYGRichTextStylesheet";
+}
+
 void FBYGStyleDetails::GenerateHeaderRowContent( FDetailWidgetRow& NodeRow )
 {
 }
@@ -288,7 +294,7 @@ void FBYGStyleDetails::GenerateChildContent( IDetailChildrenBuilder& ChildrenBui
 					return FReply::Handled();
 				} )
 				.ToolTipText( LOCTEXT( "RemoveStyleTooltip", "Remove Style" ) )
-				.ButtonStyle( FEditorStyle::Get(), "FlatButton" )
+				.ButtonStyle( FAppStyle::Get(), "FlatButton" )
 				[
 					SNew( SHorizontalBox )
 					+ SHorizontalBox::Slot()
@@ -297,8 +303,8 @@ void FBYGStyleDetails::GenerateChildContent( IDetailChildrenBuilder& ChildrenBui
 					.AutoWidth()
 					[
 						SNew( STextBlock )
-						.TextStyle( FEditorStyle::Get(), "ContentBrowser.TopBar.Font" )
-						.Font( FEditorStyle::Get().GetFontStyle( "FontAwesome.11" ) )
+						.TextStyle( FAppStyle::Get(), "ContentBrowser.TopBar.Font" )
+						.Font( FAppStyle::Get().GetFontStyle( "FontAwesome.11" ) )
 						.Text( FText::FromString( FString( TEXT( "\xf00d" ) ) ) /*fa-plus*/ )
 					]
 				]

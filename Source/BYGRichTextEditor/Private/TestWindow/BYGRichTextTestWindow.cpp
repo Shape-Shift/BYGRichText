@@ -260,3 +260,8 @@ void SBYGRichTextTestWindow::AddReferencedObjects( FReferenceCollector& Collecto
 	Collector.AddReferencedObject( RichTextBlock );
 	Collector.AddReferencedObject( Stylesheet );
 }
+
+FString SBYGRichTextTestWindow::GetReferencerName() const
+{
+	return "BYGRichTextTestWindow";
+}

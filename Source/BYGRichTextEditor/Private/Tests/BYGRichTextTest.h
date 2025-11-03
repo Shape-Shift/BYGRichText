@@ -18,6 +18,7 @@ class FBYGRichTextParseTestBase : public FFunctionalTestBase, public FGCObject
 public:
 	FBYGRichTextParseTestBase( const FString& InName, const bool bInComplexTask );
 
+	virtual FString GetReferencerName() const override;
 	virtual void GetTests(TArray<FString>& OutBeautifiedNames, TArray<FString>& OutTestCommands) const override;
 	virtual bool RunTest( const FString& Parameters ) override;
 
