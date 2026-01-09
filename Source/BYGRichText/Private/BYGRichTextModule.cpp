@@ -35,7 +35,7 @@ const FSlateBrush* FBYGRichTextModule::GetIconBrush( const FString& Path, const 
 	// Can have multiple instances of the same texture/brush, but rendered at different sizes
 	// We need to create a brush asset for every time that the brush is used for a particular size, and maintain it
 
-	const FString CacheKey = FString::Printf( TEXT( "%s-%dx%d" ), *Path, MaxSize.X, MaxSize.Y );
+	const FString CacheKey = FString::Printf( TEXT( "%s-%fx%f" ), *Path, MaxSize.X, MaxSize.Y );
 	if ( !InlineIconsCache.Contains( CacheKey ) )
 	{
 		FSoftObjectPath ObjectPath = FSoftObjectPath( Path );
@@ -92,6 +92,11 @@ void FBYGRichTextModule::OnPostEngineInit()
 void FBYGRichTextModule::AddReferencedObjects( FReferenceCollector& Collector )
 {
 	Collector.AddReferencedObject( FallbackStylesheet );
+}
+
+FString FBYGRichTextModule::GetReferencerName() const
+{
+	return TEXT("FBYGRichTextModule"); // 返回类名作为标识
 }
 
 #undef LOCTEXT_NAMESPACE

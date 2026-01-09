@@ -25,7 +25,7 @@ public:
 	}
 
 	// Stylesheet selected by default in new BYG Rich Text Block widgets
-	UPROPERTY(config, EditAnywhere, Category = Settings, meta = ( MetaClass = "BYGRichTextStylesheet" ))
+	UPROPERTY(config, EditAnywhere, Category = Settings, meta = ( MetaClass = "/Script/BYGRichText.BYGRichTextStylesheet" ))
 	FSoftClassPath DefaultStylesheet;
 
 	UPROPERTY(config, EditAnywhere, Category = Settings)
@@ -36,7 +36,7 @@ public:
 	UPROPERTY(config, EditAnywhere, Category = Settings)
 	FString ParagraphSeparator;
 	
-	UPROPERTY(config, EditAnywhere, Category = Settings, meta = ( AllowedClasses = "Font", DisplayName="Fallback Font" ))
+	UPROPERTY(config, EditAnywhere, Category = Settings, meta = ( AllowedClasses = "/Script/Engine.Font", DisplayName="Fallback Font" ))
 	FSoftObjectPath FallbackFontPath;
 
 #if WITH_EDITOR

@@ -148,7 +148,7 @@ public:
 
 
 protected:
-	UPROPERTY( EditAnywhere, meta = ( AllowedClasses = "Font", DisplayName = "Font Family" ) )
+	UPROPERTY( EditAnywhere, meta = ( AllowedClasses = "/Script/Engine.Font", DisplayName = "Font Family" ) )
 		const UObject* FontObject;
 };
 
@@ -179,7 +179,7 @@ protected:
 	//       If there is no RichTextTypefaceProperty, user should be able to select the typeface.
 	//       With the object set, copy how SlateFontInfoCustomization works in filling out the list of
 	//       TypefaceFontNames in a dropdown.
-	UPROPERTY( EditAnywhere, meta = ( AllowedClasses = "Font", DisplayName = "Font Family" ) )
+	UPROPERTY( EditAnywhere, meta = ( AllowedClasses = "/Script/Engine.Font", DisplayName = "Font Family" ) )
 		const UObject* FontObject;
 
 	/** The name of the font to use from the default typeface (None will use the first entry) */

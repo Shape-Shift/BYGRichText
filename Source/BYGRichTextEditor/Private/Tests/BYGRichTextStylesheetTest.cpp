@@ -10,11 +10,13 @@
 #include <Tests/AutomationEditorCommon.h>
 #include <FunctionalTestBase.h>
 
-static const int StylesheetTestFlags = (
+#include "Settings/BYGRichTextStyle.h"
+
+constexpr  EAutomationTestFlags StylesheetTestFlags = (
 	EAutomationTestFlags::EditorContext
 	| EAutomationTestFlags::CommandletContext
 	| EAutomationTestFlags::ClientContext
-	| EAutomationTestFlags::ProductFilter );
+	| EAutomationTestFlags::ProductFilter);
 
 
 FBYGRichTextStylesheetTestBase::FBYGRichTextStylesheetTestBase( const FString& InName, const bool bInComplexTask )

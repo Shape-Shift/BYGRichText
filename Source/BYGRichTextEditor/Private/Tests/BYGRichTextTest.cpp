@@ -10,11 +10,13 @@
 #include <Tests/AutomationEditorCommon.h>
 #include <FunctionalTestBase.h>
 
-static const int TestFlags = (
+#include "Settings/BYGRichTextStyle.h"
+
+constexpr  EAutomationTestFlags TestFlags = (
 	EAutomationTestFlags::EditorContext
 	| EAutomationTestFlags::CommandletContext
 	| EAutomationTestFlags::ClientContext
-	| EAutomationTestFlags::ProductFilter );
+	| EAutomationTestFlags::ProductFilter);
 
 
 FBYGRichTextParseTestBase::FBYGRichTextParseTestBase( const FString& InName, const bool bInComplexTask )
@@ -90,6 +92,11 @@ FBYGRichTextParseTestBase::FBYGRichTextParseTestBase( const FString& InName, con
 			"<s ids=\"[0-9 ]+\" key=\"val\"></><s ids=\"[0-9 ]+\"> World</>",
 		} },
 	};
+}
+
+FString FBYGRichTextParseTestBase::GetReferencerName() const
+{
+	return "BYGRichTextParseTest";
 }
 
 void FBYGRichTextParseTestBase::GetTests( TArray<FString>& OutBeautifiedNames, TArray<FString>& OutTestCommands ) const

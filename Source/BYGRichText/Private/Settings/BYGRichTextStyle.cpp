@@ -3,6 +3,8 @@
 #include "Settings/BYGRichTextStyle.h"
 #include <Internationalization/Regex.h>
 
+#include "Settings/BYGRichTextProperty.h"
+
 #define LOCTEXT_NAMESPACE "BYGRichTextModule"
 
 void UBYGRichTextStyle::PostInitProperties()
@@ -30,7 +32,7 @@ void UBYGRichTextStyle::AddProperty( UBYGRichTextPropertyBase* Property )
 void UBYGRichTextStyle::SortProperties()
 {
 	// For now there seems to be a problem with sorting stuff
-	return;
+ 
 #if WITH_EDITOR
 	TArray<UBYGRichTextPropertyBase*> NewProperties = Properties;
 	NewProperties.StableSort( []( const UBYGRichTextPropertyBase& A, const UBYGRichTextPropertyBase& B )

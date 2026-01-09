@@ -11,19 +11,16 @@ public class BYGRichTextEditor : ModuleRules
 			}
 		);
 
-		PublicDependencyModuleNames.AddRange(
+ 
+
+		PrivateDependencyModuleNames.AddRange(
 			new string[] {
 				"Core",
 				"CoreUObject",
 				"Engine",
 				"Slate",
 				"UnrealEd",
-                "UMG",
-			}
-		);
-
-		PrivateDependencyModuleNames.AddRange(
-			new string[] {
+				"UMG",
                 "SlateCore",
 				"BYGRichText",
                 "EditorStyle",
@@ -36,7 +33,8 @@ public class BYGRichTextEditor : ModuleRules
 				"RenderCore",
 				"FunctionalTesting",
 				"DataValidation",
-				"KismetCompiler"
+				"KismetCompiler",
+				"BlueprintGraph"
             }
         );
 
